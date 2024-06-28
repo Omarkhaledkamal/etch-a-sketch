@@ -50,9 +50,12 @@ body {
 
 .container .sketch-container {
   width: 100%;
-  flex-basis: 700px;
-  background-color: #eee;
+  flex-basis: 500px;
   border-radius: 10px;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .button-container {
