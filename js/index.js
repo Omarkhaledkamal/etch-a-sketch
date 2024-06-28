@@ -34,7 +34,9 @@ function createTiles(tiles) {
 }
 
 // default 16 tile grid
-// createTiles(tiles);
+createTiles(tiles);
+
+
 // const sketchDivs = document.querySelectorAll(".sketch-container .row");
 // const tilesButton = document.querySelector("button");
 // tilesButton.addEventListener("click", () => {
