@@ -1,6 +1,5 @@
 // بسم الله الرحمن الرحيم
 
-
 //default tiles
 let tiles = 16;
 // generate random colour
@@ -35,8 +34,6 @@ function createTiles(tiles) {
 // default 16 tile grid
 createTiles(tiles);
 
-
-
 const tilesButton = document.querySelector("button");
 tilesButton.addEventListener("click", () => {
   const sketchDivs = document.querySelectorAll(".row");
@@ -58,4 +55,3 @@ tilesButton.addEventListener("click", () => {
   // create new grid
   createTiles(tiles);
 })
-
