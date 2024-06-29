@@ -13,13 +13,11 @@ function createTiles(tiles) {
   // rows
   for (let i = 0; i < tiles; i++) {
     let tile = document.createElement("div");
-    tile.style.cssText = "display: flex; flex-basis: 50px; flex: 1;";
     tile.classList.add("row")
     sketchContainer.appendChild(tile);
     // columns
     for (let j = 0; j < tiles; j++) {
       let innerTile = document.createElement("div");
-      innerTile.style.cssText = "border: 1px solid; flex-basis: 50px; flex: 1;"
       innerTile.classList.add("chanbg");
       tile.appendChild(innerTile);
     }
@@ -27,8 +25,9 @@ function createTiles(tiles) {
   
   const tileDivs = document.querySelectorAll(".chanbg");
   tileDivs.forEach((tile) => {
+    tile.style.backgroundColor = "#eee";
     tile.addEventListener("mouseover", () => {
-      tile.style.backgroundColor = `rgb(${randomColor(255)}, ${randomColor(255)}, ${randomColor(255)}`;
+      tile.style.backgroundColor = `rgb(${randomColor(255)}, ${randomColor(255)}, ${randomColor(255)})`;
     })
   })  
 }
@@ -37,25 +36,26 @@ function createTiles(tiles) {
 createTiles(tiles);
 
 
-// const sketchDivs = document.querySelectorAll(".sketch-container .row");
-// const tilesButton = document.querySelector("button");
-// tilesButton.addEventListener("click", () => {
-//   tiles = Number(prompt("Enter A Valid Tiles Number From 16 - 100"));
-//   while ( tiles < 16 || tiles > 100) {
-//     alert ( " ERROR ");
-//     tiles = Number(prompt("Enter A Valid Tiles Number From 16 - 100"));
-//   }
-//   console.log(tiles);
-//   // remove old grid
-//   for (let i = 0; i < tiles; i++) {
-//     sketchDivs.forEach((tile) => {
-//       tile.removeChild("div");
-//     })
-//     sketchDivs.forEach((div) => {
-//       sketchContainer.removeChild(div);
-//     })
-//   }
-//   // create new grid
-//   createTiles(tiles);
-// })
+
+const tilesButton = document.querySelector("button");
+tilesButton.addEventListener("click", () => {
+  const sketchDivs = document.querySelectorAll(".row");
+  const tileDivs = document.querySelectorAll(".chanbg")
+  tiles = Number(prompt("Enter A Valid Tiles Number From 16 - 100"));
+  while ( tiles < 16 || tiles > 100) {
+    alert ( " ERROR ");
+    tiles = Number(prompt("Enter A Valid Tiles Number From 16 - 100"));
+  }
+  // remove old grid
+  for (let i = 0; i < tiles; i++) {
+    tileDivs.forEach(tile => {
+      tile.remove();
+    })
+    sketchDivs.forEach(div => {
+      div.remove();
+    })
+  }
+  // create new grid
+  createTiles(tiles);
+})
 
